@@ -1,3 +1,9 @@
+<?php 
+include('include/dbconfig.php'); 
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,12 +28,12 @@
 
 </head>
 <body>
-        <header class="mb-5" > 
+        <header class="mb-5" >
                 <nav class="navbar navbar-expand-md">
                     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php" id="title">KAKAO FRIENDS</a>
+                                <a class="nav-link" href="" id="title">KAKAO FRIENDS</a>
                             </li>
                         </ul>
                     </div>
@@ -35,33 +41,33 @@
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
                                     <div class="dropdown">
-                                       <a class="nav-link" href="" id="menu">카테고리</a>
-                                        <div class="dropdown-content" id= "content">
-                                            <div class="container">
-                                                <div class="row">
-                                                <div class = "col-2" id="submenu">
-                                                     <a href="#">전체분류</a>
-                                                    <a href="#">Link 1</a>
-                                                   <a href="#">Link 2</a>
-                                                    <a href="#">Link 3</a>
+                                        <a class="nav-link" href="" id = "menu">카테고리</a>
+                                        <div class="dropdown-content" id="content">
+                                          <div class="container">
+                                              <div class="row" >
+                                                  <div class="col-2" id="submenu">
+                                                      <a href="">blahblah</a>
+                                                      <a href="">blahblah</a>
+                                                      <a href="">blahblah</a>
+                                                      <a href="">blahblah</a>
+                                                  </div>
+                                                  <div class="col-4" id="submenu">
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                  </div>
+                                                  <div class="col-6" id="submenu">
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
+                                                    <a href="">blahblah</a>
                                                 </div>
-                                                <div class = "col-4" id="submenu">
-                                                        <a href="#">전체분류</a>
-                                                       <a href="#">Link 1</a>
-                                                      <a href="#">Link 2</a>
-                                                       <a href="#">Link 3</a>
-                                                   </div>
-                                                   <div class = "col-6" id="submenu">
-                                                        <a href="#">전체분류</a>
-                                                       <a href="#">Link 1</a>
-                                                      <a href="#">Link 2</a>
-                                                       <a href="#">Link 3</a>
-                                                   </div>
-                                            </div>
-                                            </div>
-                                                </div>
+
                                               </div>
-                                    
+                                          </div>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="" id="menu">스토리</a>
@@ -86,16 +92,24 @@
                             </li>
                             <li class="nav-item">
                                     <span style="font-size:1.5rem;">
-                                            <div class="dropdown"> 
-                                            <i class="fa fa-user"> <a class="nav-link" href="" id="menu"></a></i>
-                                                     <div class="dropdown-content" id= "content">
-                                                             <div class = "col-2" id="submenu">
-                                                                  <a href="register.php">회원가입</a>
-                                                                 <a href="login.php">로그인</a>
-                                                                <a href="#">마이페이지</a>
-                                                             </div>
-                                                    </div>
-                                                           </div>
+                                    <div class="dropdown">
+                                        <i class="fa fa-user"><a class="nav-link" href="" id="menu"></a></i>
+                                        
+                                    <div class="dropdown-content">
+                                      <?php 
+                                      if (!isset($_SESSION['name'])){
+                                          echo '<a href="register.php">회원가입</a> <a href= "login.php">로그인</a>';
+                                      } 
+                                      ?>
+                                      <?php 
+                                      if (isset($_SESSION['name'])){
+                                          echo '<a href="mypage.php">마이페이지</a>';
+                                      } 
+                                      ?>
+
+                                      
+                                    </div>
+                                  </div>
                             </span>
                             </li>
                             <li class="nav-item">
@@ -260,9 +274,12 @@
 
                 </div>
             </section>
-         <footer>
-             <img src ="assets/img/004.png" width="350" height="117">
-         </footer>
+            <footer>
+                    <img src="assets/img/004.png" width="350" >
+            </footer>
+                
+                   
+
     <script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
